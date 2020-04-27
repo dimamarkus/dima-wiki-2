@@ -1,0 +1,24 @@
+// In this example, we're consuming each portion of EUI separately
+// The advantage in this method is you can provide overwrites as you
+// feel necessary. Each one of these imports could be further expanded
+// into their parts if we wanted to do even more styling.
+@import '~@elastic/eui/src/themes/eui/eui_colors_dark';
+// @import '../node_modules/@elastic/eui/src/theme_dark.scss';
+
+// Here we are overwriting the color from blue to pink
+$euiColorPrimary: #00BFB3;
+
+// Global styling, this is where things like shadows, borders
+// and other mixin based helpers live
+@import 'src/global_styling/index';
+
+
+// This pulls in all the EUI component styling. If we wanted to
+// style individual components, we could further break up this
+// file into its parts.
+@import '~@elastic/eui/src/components/index';
+
+
+// We can now import stuff specific to the app, and it now will
+// recieve the adjusted EUI takens and
+@import 'src/components/index';

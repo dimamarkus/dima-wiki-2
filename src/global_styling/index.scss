@@ -1,0 +1,10 @@
+ // Imported global styling from EUI
+@import '~@elastic/eui/src/global_styling/index';
+
+// Site specific global styling
+@import 'src/global_styling/mixins/index';
+
+
+// For example, let's make the buttons rounder
+// $euiBorderRadius: 80px;
+

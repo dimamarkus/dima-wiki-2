@@ -1,0 +1,21 @@
+.chromeWrap {
+  width: calc(100% - 3rem);
+  margin-left: 3rem;
+  padding-top: $euiSizeXXL + $euiSizeS;
+}
+
+.chromeHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.chromeHeader__themeSection {
+  display: flex;
+  align-items: center;
+  width: $euiSize * 11;
+  justify-content: center;
+  padding-left: $euiSizeXS;
+  padding-right: $euiSizeXS;
+}

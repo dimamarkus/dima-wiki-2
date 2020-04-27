@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
-import Features from '../components/Features'
-import Testimonials from '../components/Testimonials'
-import Pricing from '../components/Pricing'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
+import Features from 'src/components/Features'
+import Testimonials from 'src/components/Testimonials'
+import Pricing from 'src/components/Pricing'
+import PreviewCompatibleImage from 'src/components/PreviewCompatibleImage'
 
 export const ProductPageTemplate = ({
   image,
@@ -132,19 +131,17 @@ const ProductPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
-      <ProductPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-        main={frontmatter.main}
-        testimonials={frontmatter.testimonials}
-        fullImage={frontmatter.full_image}
-        pricing={frontmatter.pricing}
-      />
-    </Layout>
+    <ProductPageTemplate
+      image={frontmatter.image}
+      title={frontmatter.title}
+      heading={frontmatter.heading}
+      description={frontmatter.description}
+      intro={frontmatter.intro}
+      main={frontmatter.main}
+      testimonials={frontmatter.testimonials}
+      fullImage={frontmatter.full_image}
+      pricing={frontmatter.pricing}
+    />
   )
 }
 

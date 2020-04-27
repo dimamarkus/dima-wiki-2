@@ -2,9 +2,22 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
-import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
+import Features from 'src/components/Features'
+import BlogRoll from 'src/components/BlogRoll'
+
+import {
+  EuiButton as Button,
+  EuiPage as Page,
+  EuiPageBody as Body,
+  EuiPageContent as Content,
+  EuiPageContentBody as ContentBody,
+  EuiPageContentHeader as ContentHeader,
+  EuiPageContentHeaderSection as ContentHeaderSection,
+  EuiPageHeader as Header,
+  EuiPageHeaderSection as HeaderSection,
+  EuiText as Text,
+  EuiTitle as Title,
+} from '@elastic/eui'
 
 export const IndexPageTemplate = ({
   image,
@@ -15,103 +28,66 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top left`,
-        backgroundAttachment: `fixed`,
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
-    </div>
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
-                <div className="columns">
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  <Page restrictWidth>
+    <Body>
+      <Header>
+        <HeaderSection>
+          <Title size="l">
+            <h1>{ title }</h1>
+          </Title>
+        </HeaderSection>
+        <HeaderSection>
+          <Button
+            iconType="logoGithub"
+            href="https://github.com/elastic/gatsby-eui-starter"
+            fill>
+            Open in Github
+          </Button>
+          <Button
+            iconType="logoGithub"
+            href="https://github.com/elastic/gatsby-eui-starter"
+            fill>
+              <Link className="btn" to="/blog">
+                Read more
+              </Link>
+          </Button>
+        </HeaderSection>
+      </Header>
+      <Content>
+        <ContentHeader>
+          <ContentHeaderSection>
+            <Title>
+              <h2>{ subheading }</h2>
+            </Title>
+          </ContentHeaderSection>
+          <ContentHeaderSection />
+        </ContentHeader>
+        <ContentBody>
+          <Title>
+            <h3>{mainpitch.title}</h3>
+          </Title>
+          <Text>
+            <p>
+              {mainpitch.description}
+            </p>
+            <h3>Running locally</h3>
+            <h3>
+              {heading}
+            </h3>
+            <p>{description}</p>
+            <Link className="btn" to="/products">
+              See all products
+            </Link>
+            <h3>
+              Latest stories
+            </h3>
+          </Text>
+          <Features gridItems={intro.blurbs} />
+          <BlogRoll />
+        </ContentBody>
+      </Content>
+    </Body>
+  </Page>
 )
 
 IndexPageTemplate.propTypes = {
@@ -130,17 +106,15 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
-      <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
-      />
-    </Layout>
+    <IndexPageTemplate
+      image={frontmatter.image}
+      title={frontmatter.title}
+      heading={frontmatter.heading}
+      subheading={frontmatter.subheading}
+      mainpitch={frontmatter.mainpitch}
+      description={frontmatter.description}
+      intro={frontmatter.intro}
+    />
   )
 }
 

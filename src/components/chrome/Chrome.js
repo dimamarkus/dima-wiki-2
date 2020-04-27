@@ -5,12 +5,21 @@
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
 
+<<<<<<< HEAD
 import React from 'react';
 
 // @ts-ignore
 import moon from 'src/components/chrome/assets/moon.svg';
 // @ts-ignore
 import sun from 'src/components/chrome/assets/sun.svg';
+=======
+import React from 'react'
+
+// @ts-ignore
+import moon from 'src/components/chrome/assets/moon.svg'
+// @ts-ignore
+import sun from 'src/components/chrome/assets/sun.svg'
+>>>>>>> Update file paths
 
 import {
   EuiButton,
@@ -33,16 +42,26 @@ import {
   EuiHorizontalRule,
   // @ts-ignore
   EuiShowFor,
+<<<<<<< HEAD
 } from '@elastic/eui';
 
 import { TopLinks } from 'src/components/navigation_links/top_links';
 import { SolutionLinks } from 'src/components/navigation_links/solution_links';
 import { ExploreLinks } from 'src/components/navigation_links/explore_links';
 import { AdminLinks } from 'src/components/navigation_links/admin_links';
+=======
+} from '@elastic/eui'
+
+import { TopLinks } from 'src/components/navigation_links/top_links'
+import { SolutionLinks } from 'src/components/navigation_links/solution_links'
+import { ExploreLinks } from 'src/components/navigation_links/explore_links'
+import { AdminLinks } from 'src/components/navigation_links/admin_links'
+>>>>>>> Update file paths
 import Footer from 'src/components/Footer'
 import Navbar from 'src/components/Navbar'
 import Helmet from 'src/components/Helmet'
 
+<<<<<<< HEAD
 export const ThemeContext = React.createContext('dark');
 
 if (localStorage.getItem('theme') === 'dark') {
@@ -60,6 +79,25 @@ export default class Chrome extends React.Component {
       theme: this.initialTheme,
       themeIsLoading: false,
     };
+=======
+export const ThemeContext = React.createContext('dark')
+
+if (localStorage.getItem('theme') === 'dark') {
+  require('src/themes/theme_dark.scss')
+} else {
+  require('src/themes/theme_light.scss')
+}
+
+export default class Chrome extends React.Component {
+  initialTheme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      theme: this.initialTheme,
+      themeIsLoading: false,
+    }
+>>>>>>> Update file paths
   }
 
   handleChangeTheme = () => {
@@ -69,11 +107,19 @@ export default class Chrome extends React.Component {
         themeIsLoading: true,
       },
       () => {
+<<<<<<< HEAD
         localStorage.setItem('theme', this.state.theme);
         window.location.reload();
       }
     );
   };
+=======
+        localStorage.setItem('theme', this.state.theme)
+        window.location.reload()
+      }
+    )
+  }
+>>>>>>> Update file paths
 
   renderLogo() {
     return (
@@ -82,7 +128,11 @@ export default class Chrome extends React.Component {
         href="/#/chrome/nav-drawer"
         aria-label="Goes to home"
       />
+<<<<<<< HEAD
     );
+=======
+    )
+>>>>>>> Update file paths
   }
 
   renderMenuTrigger() {
@@ -92,7 +142,11 @@ export default class Chrome extends React.Component {
         onClick={() => this.navDrawerRef.toggleOpen()}>
         <EuiIcon type="apps" href="#" size="m" />
       </EuiHeaderSectionItemButton>
+<<<<<<< HEAD
     );
+=======
+    )
+>>>>>>> Update file paths
   }
 
   renderBreadcrumbs() {
@@ -101,12 +155,18 @@ export default class Chrome extends React.Component {
         text: 'Home',
         href: '#',
         onClick: (e) => {
+<<<<<<< HEAD
           e.preventDefault();
           console.log('You clicked home');
+=======
+          e.preventDefault()
+          console.log('You clicked home')
+>>>>>>> Update file paths
         },
         'data-test-subj': 'breadcrumbsAnimals',
         className: 'customClass',
       },
+<<<<<<< HEAD
     ];
 
     return <EuiHeaderBreadcrumbs breadcrumbs={breadcrumbs} />;
@@ -117,6 +177,18 @@ export default class Chrome extends React.Component {
   render() {
     const isDarkTheme = localStorage.getItem('theme') === 'dark'
     const themeIcon = isDarkTheme ? sun : moon;
+=======
+    ]
+
+    return <EuiHeaderBreadcrumbs breadcrumbs={breadcrumbs} />
+  }
+
+  setNavDrawerRef = (ref) => (this.navDrawerRef = ref)
+
+  render() {
+    const isDarkTheme = localStorage.getItem('theme') === 'dark'
+    const themeIcon = isDarkTheme ? sun : moon
+>>>>>>> Update file paths
 
     return (
       <ThemeContext.Provider value={this.state.theme}>
@@ -167,6 +239,10 @@ export default class Chrome extends React.Component {
           </div>
         </div>
       </ThemeContext.Provider>
+<<<<<<< HEAD
     );
+=======
+    )
+>>>>>>> Update file paths
   }
 }

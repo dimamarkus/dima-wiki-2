@@ -43,14 +43,6 @@ export const IndexPageTemplate = ({
             fill>
             Open in Github
           </Button>
-          <Button
-            iconType="logoGithub"
-            href="https://github.com/elastic/gatsby-eui-starter"
-            fill>
-              <Link className="btn" to="/blog">
-                Read more
-              </Link>
-          </Button>
         </HeaderSection>
       </Header>
       <Content>

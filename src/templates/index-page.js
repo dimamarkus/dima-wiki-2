@@ -27,60 +27,61 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
-}) => (
-  <Page restrictWidth>
-    <Body>
-      <Header>
-        <HeaderSection>
-          <Title size="l">
-            <h1>{ title }</h1>
-          </Title>
-        </HeaderSection>
-        <HeaderSection>
-          <Button
-            iconType="logoGithub"
-            href="https://github.com/elastic/gatsby-eui-starter"
-            fill>
-            Open in Github
-          </Button>
-        </HeaderSection>
-      </Header>
-      <Content>
-        <ContentHeader>
-          <ContentHeaderSection>
-            <Title>
-              <h2>{ subheading }</h2>
-            </Title>
-          </ContentHeaderSection>
-          <ContentHeaderSection />
-        </ContentHeader>
-        <ContentBody>
-          <Title>
-            <h3>{mainpitch.title}</h3>
-          </Title>
-          <Text>
-            <p>
-              {mainpitch.description}
-            </p>
-            <h3>Running locally</h3>
-            <h3>
-              {heading}
-            </h3>
-            <p>{description}</p>
-            <Link className="btn" to="/products">
-              See all products
-            </Link>
-            <h3>
-              Latest stories
-            </h3>
-          </Text>
-          <Features gridItems={intro.blurbs} />
-          <BlogRoll />
-        </ContentBody>
-      </Content>
-    </Body>
-  </Page>
-)
+}) => (<div></div>)
+// (
+//   <Page restrictWidth>
+//     <Body>
+//       <Header>
+//         <HeaderSection>
+//           <Title size="l">
+//             <h1>{ title }</h1>
+//           </Title>
+//         </HeaderSection>
+//         <HeaderSection>
+//           <Button
+//             iconType="logoGithub"
+//             href="https://github.com/elastic/gatsby-eui-starter"
+//             fill>
+//             Open in Github
+//           </Button>
+//         </HeaderSection>
+//       </Header>
+//       <Content>
+//         <ContentHeader>
+//           <ContentHeaderSection>
+//             <Title>
+//               <h2>{ subheading }</h2>
+//             </Title>
+//           </ContentHeaderSection>
+//           <ContentHeaderSection />
+//         </ContentHeader>
+//         <ContentBody>
+//           <Title>
+//             <h3>{mainpitch.title}</h3>
+//           </Title>
+//           <Text>
+//             <p>
+//               {mainpitch.description}
+//             </p>
+//             <h3>Running locally</h3>
+//             <h3>
+//               {heading}
+//             </h3>
+//             <p>{description}</p>
+//             <Link className="btn" to="/products">
+//               See all products
+//             </Link>
+//             <h3>
+//               Latest stories
+//             </h3>
+//           </Text>
+//           <Features gridItems={intro.blurbs} />
+//           <BlogRoll />
+//         </ContentBody>
+//       </Content>
+//     </Body>
+//   </Page>
+// )
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),

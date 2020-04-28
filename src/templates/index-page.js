@@ -31,7 +31,7 @@ export const IndexPageTemplate = (props) => {
   const PageContent = contentComponent || Content
 
   return (
-    <Page restrictWidth>
+
       <section className='section section--gradient'>
         <div className='container'>
           <div className='columns'>
@@ -50,7 +50,6 @@ export const IndexPageTemplate = (props) => {
           </div>
         </div>
       </section>
-    </Page>
   )
 }
 
@@ -70,15 +69,17 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <IndexPageTemplate
-      image={frontmatter.image}
-      title={frontmatter.title}
-      heading={frontmatter.heading}
-      subheading={frontmatter.subheading}
-      mainpitch={frontmatter.mainpitch}
-      description={frontmatter.description}
-      intro={frontmatter.intro}
-    />
+    <Page restrictWidth>
+      <IndexPageTemplate
+        image={frontmatter.image}
+        title={frontmatter.title}
+        heading={frontmatter.heading}
+        subheading={frontmatter.subheading}
+        mainpitch={frontmatter.mainpitch}
+        description={frontmatter.description}
+        intro={frontmatter.intro}
+      />
+    </Page>
   )
 }
 

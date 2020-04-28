@@ -157,8 +157,8 @@ export default class Chrome extends React.Component {
           <EuiHorizontalRule margin='none' />
           <EuiNavDrawerGroup listItems={ AdminLinks } />
         </EuiNavDrawer>
-        <EuiPage>
-        { this.props.children }
+        <EuiPage restrictWidth>
+          { this.props.children }
         </EuiPage>
       </ThemeContext.Provider>
     )

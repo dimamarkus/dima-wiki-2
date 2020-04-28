@@ -44,14 +44,17 @@ import { AdminLinks } from 'src/components/navigation_links/admin_links'
 
 export const ThemeContext = React.createContext('dark')
 
-if (!!localStorage && localStorage.getItem('theme') === 'dark') {
+const localStorageIsAvailable = typeof localStorage !== 'undefined'
+
+if (localStorageIsAvailable && localStorage.getItem('theme') === 'dark') {
   require('src/themes/theme_dark.scss')
 } else {
   require('src/themes/theme_light.scss')
 }
 
+
 export default class Chrome extends React.Component {
-  initialTheme = localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
+  initialTheme = localStorageIsAvailable && localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
 
   constructor(props) {
     super(props)
@@ -118,7 +121,7 @@ export default class Chrome extends React.Component {
     const themeIcon = isDarkTheme ? sun : moon
 
     return (
-      <ThemeContext.Provider value={this.state.theme}>
+      <ThemeContext.Provider value={ this.state.theme }>
         <EuiHeader className='chrHeader' position='fixed'>
           <EuiHeaderSection grow={false}>
             <EuiShowFor sizes={['xs', 's']}>

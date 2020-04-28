@@ -17,6 +17,8 @@ import {
   // @ts-ignore
   EuiHeader,
   // @ts-ignore
+  EuiPage,
+  // @ts-ignore
   EuiHeaderSection,
   // @ts-ignore
   EuiHeaderSectionItem,
@@ -76,7 +78,7 @@ export default class Chrome extends React.Component {
     return (
       <EuiHeaderLogo
         iconType='logoElastic'
-        href='/#/chrome/nav-drawer'
+        href='/'
         aria-label='Goes to home'
       />
     )
@@ -155,7 +157,9 @@ export default class Chrome extends React.Component {
           <EuiHorizontalRule margin='none' />
           <EuiNavDrawerGroup listItems={ AdminLinks } />
         </EuiNavDrawer>
+        <EuiPage>
         { this.props.children }
+        </EuiPage>
       </ThemeContext.Provider>
     )
   }

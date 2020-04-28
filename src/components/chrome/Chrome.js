@@ -121,7 +121,7 @@ export default class Chrome extends React.Component {
     return (
       <ThemeContext.Provider value={this.state.theme}>
         <Helmet />
-        <EuiHeader className="chrHeader">
+        <EuiHeader className="chrHeader" position='fixed'>
           <EuiHeaderSection grow={false}>
             <EuiShowFor sizes={['xs', 's']}>
               <EuiHeaderSectionItem border="right">

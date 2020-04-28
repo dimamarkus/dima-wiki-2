@@ -25,25 +25,39 @@ export const IndexPageTemplate = ({ title, content, contentComponent }) => {
 }
 
 IndexPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func,
+  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  title: PropTypes.string,
+  heading: PropTypes.string,
+  subheading: PropTypes.string,
+  mainpitch: PropTypes.object,
+  description: PropTypes.string,
+  intro: PropTypes.shape({
+    blurbs: PropTypes.array,
+  }),
 }
 
 const IndexPage = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { frontmatter } = data.markdownRemark
 
   return (
     <IndexPageTemplate
-      contentComponent={HTMLContent}
-      title={post.frontmatter.title}
-      content={post.html}
+      image={frontmatter.image}
+      title={frontmatter.title}
+      heading={frontmatter.heading}
+      subheading={frontmatter.subheading}
+      mainpitch={frontmatter.mainpitch}
+      description={frontmatter.description}
+      intro={frontmatter.intro}
     />
   )
 }
 
 IndexPage.propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      frontmatter: PropTypes.object,
+    }),
+  }),
 }
 
 export default IndexPage

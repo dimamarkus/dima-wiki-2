@@ -3,7 +3,18 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Content, { HTMLContent } from 'src/components/Content'
 
-export const IndexPageTemplate = ({ title, content, contentComponent }) => {
+export const IndexPageTemplate = (props) => {
+  const {
+    contentComponent,
+    image,
+    title,
+    heading,
+    subheading,
+    mainpitch,
+    description,
+    intro,
+  } = props
+  const content = 'bla bla bla'
   const PageContent = contentComponent || Content
 
   return (
@@ -16,6 +27,10 @@ export const IndexPageTemplate = ({ title, content, contentComponent }) => {
                 {title}
               </h2>
               <PageContent className="content" content={content} />
+                { title }
+                { heading }
+                { subheading }
+                { description }
             </div>
           </div>
         </div>

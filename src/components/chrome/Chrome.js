@@ -78,9 +78,9 @@ export default class Chrome extends React.Component {
   renderLogo() {
     return (
       <EuiHeaderLogo
-        iconType="logoElastic"
-        href="/#/chrome/nav-drawer"
-        aria-label="Goes to home"
+        iconType='logoElastic'
+        href='/#/chrome/nav-drawer'
+        aria-label='Goes to home'
       />
     )
   }
@@ -88,9 +88,9 @@ export default class Chrome extends React.Component {
   renderMenuTrigger() {
     return (
       <EuiHeaderSectionItemButton
-        aria-label="Open nav"
+        aria-label='Open nav'
         onClick={() => this.navDrawerRef.toggleOpen()}>
-        <EuiIcon type="apps" href="#" size="m" />
+        <EuiIcon type='apps' href='#' size='m' />
       </EuiHeaderSectionItemButton>
     )
   }
@@ -121,27 +121,27 @@ export default class Chrome extends React.Component {
     return (
       <ThemeContext.Provider value={this.state.theme}>
         <Helmet />
-        <EuiHeader className="chrHeader" position='fixed'>
+        <EuiHeader className='chrHeader' position='fixed'>
           <EuiHeaderSection grow={false}>
             <EuiShowFor sizes={['xs', 's']}>
-              <EuiHeaderSectionItem border="right">
+              <EuiHeaderSectionItem border='right'>
                 {this.renderMenuTrigger()}
               </EuiHeaderSectionItem>
             </EuiShowFor>
-            <EuiHeaderSectionItem border="right">
+            <EuiHeaderSectionItem border='right'>
               {this.renderLogo()}
             </EuiHeaderSectionItem>
-            <EuiHeaderSectionItem border="right">
+            <EuiHeaderSectionItem border='right'>
               {/* <HeaderSpacesMenu /> */}
             </EuiHeaderSectionItem>
           </EuiHeaderSection>
 
           {this.renderBreadcrumbs()}
 
-          <EuiHeaderSection side="right">
-            <EuiHeaderSectionItem className="chrHeader__themeSection">
+          <EuiHeaderSection side='right'>
+            <EuiHeaderSectionItem className='chrHeader__themeSection'>
               <EuiButton
-                size="s"
+                size='s'
                 iconType={themeIcon}
                 onClick={() => this.handleChangeTheme()}
                 isLoading={this.state.themeIsLoading}>
@@ -152,14 +152,14 @@ export default class Chrome extends React.Component {
         </EuiHeader>
         <EuiNavDrawer ref={this.setNavDrawerRef}>
           <EuiNavDrawerGroup listItems={TopLinks} />
-          <EuiHorizontalRule margin="none" />
+          <EuiHorizontalRule margin='none' />
           <EuiNavDrawerGroup listItems={ExploreLinks} />
-          <EuiHorizontalRule margin="none" />
+          <EuiHorizontalRule margin='none' />
           <EuiNavDrawerGroup listItems={SolutionLinks} />
-          <EuiHorizontalRule margin="none" />
+          <EuiHorizontalRule margin='none' />
           <EuiNavDrawerGroup listItems={AdminLinks} />
         </EuiNavDrawer>
-        <div className="chrWrap">
+        <div className='chrWrap'>
           <Navbar />
           {this.props.children}
           <Footer />

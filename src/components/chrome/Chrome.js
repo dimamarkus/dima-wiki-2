@@ -44,7 +44,7 @@ import { AdminLinks } from 'src/components/navigation_links/admin_links'
 
 export const ThemeContext = React.createContext('dark')
 
-if (localStorage.getItem('theme') === 'dark') {
+if (!!localStorage && localStorage.getItem('theme') === 'dark') {
   require('src/themes/theme_dark.scss')
 } else {
   require('src/themes/theme_light.scss')

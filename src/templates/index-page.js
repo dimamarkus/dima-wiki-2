@@ -13,9 +13,6 @@ import {
   EuiTitle,
 } from '@elastic/eui';
 
-import Footer from 'src/components/Footer'
-import Navbar from 'src/components/Navbar'
-
 export const IndexPageTemplate = (props) => {
   const {
     contentComponent,

@@ -22,3 +22,7 @@ $euiColorPrimary: #00BFB3;
 // We can now import stuff specific to the app, and it now will
 // recieve the adjusted EUI takens and
 @import 'src/components/index';
+
+body {
+	background: blue
+}

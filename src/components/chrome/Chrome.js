@@ -71,7 +71,7 @@ export default class Chrome extends React.Component {
         themeIsLoading: true,
       },
       () => {
-        localStorage.setItem('theme', this.state.theme)
+        localStorageIsAvailable && localStorage.setItem('theme', this.state.theme)
         window.location.reload()
       }
     )
@@ -117,7 +117,7 @@ export default class Chrome extends React.Component {
   setNavDrawerRef = (ref) => (this.navDrawerRef = ref)
 
   render() {
-    const isDarkTheme = localStorage.getItem('theme') === 'dark'
+    const isDarkTheme = this.state.theme === 'dark'
     const themeIcon = isDarkTheme ? sun : moon
 
     return (

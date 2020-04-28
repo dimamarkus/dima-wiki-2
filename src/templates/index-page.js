@@ -1,20 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
+import Layout from 'src/components/Layout'
 import Content, { HTMLContent } from 'src/components/Content'
 import {
-  // EuiButton as Button,
-  EuiPage as Page,
-  // EuiPageBody as Body,
-  // EuiPageContent as Content,
-  // EuiPageContentBody as ContentBody,
-  // EuiPageContentHeader as ContentHeader,
-  // EuiPageContentHeaderSection as ContentHeaderSection,
-  // EuiPageHeader as Header,
-  // EuiPageHeaderSection as HeaderSection,
-  // EuiText as Text,
-  // EuiTitle as Title,
-} from '@elastic/eui'
+  EuiPage,
+  EuiPageBody,
+  EuiPageContent,
+  EuiPageContentBody,
+  EuiPageContentHeader,
+  EuiPageContentHeaderSection,
+  EuiTitle,
+} from '@elastic/eui';
+
+import Footer from 'src/components/Footer'
+import Navbar from 'src/components/Navbar'
 
 export const IndexPageTemplate = (props) => {
   const {
@@ -31,25 +31,21 @@ export const IndexPageTemplate = (props) => {
   const PageContent = contentComponent || Content
 
   return (
-
-      <section className='section section--gradient'>
-        <div className='container'>
-          <div className='columns'>
-            <div className='column is-10 is-offset-1'>
-              <div className='section'>
-                <h2 className='title is-size-3 has-text-weight-bold is-bold-light'>
-                  {title}
-                </h2>
-                <PageContent className='content' content={content} />
-                  { title }
-                  { heading }
-                  { subheading }
-                  { description }
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <EuiPageContent>
+      <EuiPageContentHeader>
+        <EuiPageContentHeaderSection>
+          <EuiTitle>
+            <h2>{ title }</h2>
+          </EuiTitle>
+        </EuiPageContentHeaderSection>
+      </EuiPageContentHeader>
+      <EuiPageContentBody>
+          <h3>{ heading }</h3>
+          <h4>{ subheading }</h4>
+          <p>{ description }</p>
+        <PageContent className='content' content={content} />
+      </EuiPageContentBody>
+    </EuiPageContent>
   )
 }
 
@@ -69,7 +65,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Page restrictWidth>
+    <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -79,7 +75,7 @@ const IndexPage = ({ data }) => {
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
-    </Page>
+    </Layout>
   )
 }
 

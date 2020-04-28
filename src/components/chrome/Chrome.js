@@ -39,9 +39,6 @@ import { TopLinks } from 'src/components/navigation_links/top_links'
 import { SolutionLinks } from 'src/components/navigation_links/solution_links'
 import { ExploreLinks } from 'src/components/navigation_links/explore_links'
 import { AdminLinks } from 'src/components/navigation_links/admin_links'
-import Footer from 'src/components/Footer'
-import Navbar from 'src/components/Navbar'
-import Helmet from 'src/components/Helmet'
 
 export const ThemeContext = React.createContext('dark')
 
@@ -120,50 +117,45 @@ export default class Chrome extends React.Component {
 
     return (
       <ThemeContext.Provider value={this.state.theme}>
-        <Helmet />
         <EuiHeader className='chrHeader' position='fixed'>
           <EuiHeaderSection grow={false}>
             <EuiShowFor sizes={['xs', 's']}>
               <EuiHeaderSectionItem border='right'>
-                {this.renderMenuTrigger()}
+                { this.renderMenuTrigger() }
               </EuiHeaderSectionItem>
             </EuiShowFor>
             <EuiHeaderSectionItem border='right'>
-              {this.renderLogo()}
+              { this.renderLogo() }
             </EuiHeaderSectionItem>
             <EuiHeaderSectionItem border='right'>
-              {/* <HeaderSpacesMenu /> */}
+              { /* <HeaderSpacesMenu /> */ }
             </EuiHeaderSectionItem>
           </EuiHeaderSection>
 
-          {this.renderBreadcrumbs()}
+          { this.renderBreadcrumbs() }
 
           <EuiHeaderSection side='right'>
             <EuiHeaderSectionItem className='chrHeader__themeSection'>
               <EuiButton
                 size='s'
-                iconType={themeIcon}
-                onClick={() => this.handleChangeTheme()}
-                isLoading={this.state.themeIsLoading}>
+                iconType={ themeIcon }
+                onClick={ () => this.handleChangeTheme() }
+                isLoading={ this.state.themeIsLoading }>
                 Switch Theme
               </EuiButton>
             </EuiHeaderSectionItem>
           </EuiHeaderSection>
         </EuiHeader>
-        <EuiNavDrawer ref={this.setNavDrawerRef}>
-          <EuiNavDrawerGroup listItems={TopLinks} />
+        <EuiNavDrawer ref={ this.setNavDrawerRef }>
+          <EuiNavDrawerGroup listItems={ TopLinks } />
           <EuiHorizontalRule margin='none' />
-          <EuiNavDrawerGroup listItems={ExploreLinks} />
+          <EuiNavDrawerGroup listItems={ ExploreLinks } />
           <EuiHorizontalRule margin='none' />
-          <EuiNavDrawerGroup listItems={SolutionLinks} />
+          <EuiNavDrawerGroup listItems={ SolutionLinks } />
           <EuiHorizontalRule margin='none' />
-          <EuiNavDrawerGroup listItems={AdminLinks} />
+          <EuiNavDrawerGroup listItems={ AdminLinks } />
         </EuiNavDrawer>
-        <div className='chrWrap'>
-          <Navbar />
-          {this.props.children}
-          <Footer />
-        </div>
+        { this.props.children }
       </ThemeContext.Provider>
     )
   }

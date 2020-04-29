@@ -30,6 +30,8 @@ export const IndexPageTemplate = (props) => {
   } = props
   const content = 'bla bla bla'
   const PageContent = contentComponent || Content
+  const backgroundImage = `url(${ !!image.childImageSharp ? image.childImageSharp.fluid.src : image })`
+  console.log('backgroundImage', backgroundImage)
 
   return (
     <Layout>

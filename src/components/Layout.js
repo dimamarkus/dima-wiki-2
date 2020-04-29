@@ -5,11 +5,11 @@ import Footer from 'src/components/Footer'
 import './all.sass'
 import { EuiPageBody } from '@elastic/eui';
 
-// <Helmet />
 
 const TemplateWrapper = ({ children }) => {
   return (
     <EuiPageBody component="div">
+		<Helmet />
     	<Navbar />
     	{ children }
     	<Footer />

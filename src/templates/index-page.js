@@ -1,16 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from 'src/components/Layout'
-import Content, { HTMLContent } from 'src/components/Content'
+import Content from 'src/components/Content'
+import Features from 'src/components/Features'
+import BlogRoll from 'src/components/BlogRoll'
 import {
-  EuiPage,
-  EuiPageBody,
+  EuiButton,
   EuiPageContent,
   EuiPageContentBody,
   EuiPageContentHeader,
   EuiPageContentHeaderSection,
+  EuiPageHeader,
+  EuiPageHeaderSection,
   EuiTitle,
+  EuiText,
 } from '@elastic/eui';
 
 export const IndexPageTemplate = (props) => {
@@ -28,21 +32,56 @@ export const IndexPageTemplate = (props) => {
   const PageContent = contentComponent || Content
 
   return (
-    <EuiPageContent>
-      <EuiPageContentHeader>
-        <EuiPageContentHeaderSection>
-          <EuiTitle>
-            <h2>{ title }</h2>
+    <Layout>
+      <EuiPageHeader>
+        <EuiPageHeaderSection>
+          <EuiTitle size="l">
+            <h1>{ title }</h1>
           </EuiTitle>
-        </EuiPageContentHeaderSection>
-      </EuiPageContentHeader>
-      <EuiPageContentBody>
-          <h3>{ heading }</h3>
-          <h4>{ subheading }</h4>
-          <p>{ description }</p>
-        <PageContent className='content' content={content} />
-      </EuiPageContentBody>
-    </EuiPageContent>
+        </EuiPageHeaderSection>
+        <EuiPageHeaderSection>
+          <EuiButton
+            iconType="logoGithub"
+            href="https://github.com/elastic/gatsby-eui-starter"
+            fill>
+            Open in Github
+          </EuiButton>
+        </EuiPageHeaderSection>
+      </EuiPageHeader>
+      <EuiPageContent>
+        <EuiPageContentHeader>
+          <EuiPageContentHeaderSection>
+            <EuiTitle>
+              <h2>{ subheading }</h2>
+            </EuiTitle>
+          </EuiPageContentHeaderSection>
+        </EuiPageContentHeader>
+        <EuiPageContentBody>
+          <EuiTitle>
+            <h3>{mainpitch.title}</h3>
+          </EuiTitle>
+          <EuiText>
+            <p>
+              {mainpitch.description}
+            </p>
+            <h3>Running locally</h3>
+            <h3>
+              {heading}
+            </h3>
+            <p>{description}</p>
+            <Link className="btn" to="/products">
+              See all products
+            </Link>
+            <h3>
+              Latest stories
+            </h3>
+          </EuiText>
+          <Features gridItems={intro.blurbs} />
+          <BlogRoll />
+          <PageContent className='content' content={content} />
+        </EuiPageContentBody>
+      </EuiPageContent>
+    </Layout>
   )
 }
 
@@ -62,7 +101,6 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -72,7 +110,6 @@ const IndexPage = ({ data }) => {
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
-    </Layout>
   )
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 import Chrome from 'src/components/chrome/Chrome'
 
 export const wrapPageElement = ({ element, props }) => {
-  return <Chrome { ...props }>{ element }</Chrome>
+  // return <Chrome { ...props }>{ element }</Chrome>
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -14,4 +14,5 @@ export const wrapRootElement = ({ element }) => {
   //      { element }
   //    </Provider>
   //  )
+  return <Chrome>{ element }</Chrome>
 }

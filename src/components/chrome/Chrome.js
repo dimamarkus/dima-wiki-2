@@ -29,18 +29,11 @@ import {
   EuiHeaderLogo,
   EuiIcon,
   // @ts-ignore
-  EuiNavDrawerGroup,
-  // @ts-ignore
-  EuiNavDrawer,
-  EuiHorizontalRule,
-  // @ts-ignore
   EuiShowFor,
+  EuiPageSideBar,
 } from '@elastic/eui'
 
-import { TopLinks } from 'src/components/navigation_links/top_links'
-import { SolutionLinks } from 'src/components/navigation_links/solution_links'
-import { ExploreLinks } from 'src/components/navigation_links/explore_links'
-import { AdminLinks } from 'src/components/navigation_links/admin_links'
+import SideNav from 'src/components/SideNav'
 
 export const ThemeContext = React.createContext('dark')
 
@@ -121,7 +114,7 @@ export default class Chrome extends React.Component {
     const themeIcon = isDarkTheme ? sun : moon
 
     return (
-      <ThemeContext.Provider value={ this.state.theme }>
+      <>
         <EuiHeader className='chrHeader' position='fixed'>
           <EuiHeaderSection grow={false}>
             <EuiShowFor sizes={['xs', 's']}>
@@ -151,19 +144,51 @@ export default class Chrome extends React.Component {
             </EuiHeaderSectionItem>
           </EuiHeaderSection>
         </EuiHeader>
-        <EuiNavDrawer ref={ this.setNavDrawerRef }>
-          <EuiNavDrawerGroup listItems={ TopLinks } />
-          <EuiHorizontalRule margin='none' />
-          <EuiNavDrawerGroup listItems={ ExploreLinks } />
-          <EuiHorizontalRule margin='none' />
-          <EuiNavDrawerGroup listItems={ SolutionLinks } />
-          <EuiHorizontalRule margin='none' />
-          <EuiNavDrawerGroup listItems={ AdminLinks } />
-        </EuiNavDrawer>
-        <EuiPage restrictWidth>
+        <EuiPage>
+          <EuiPageSideBar>
+            <SideNav />
+          </EuiPageSideBar>
           { this.props.children }
         </EuiPage>
-      </ThemeContext.Provider>
+      </>
     )
+
+    // return (
+    //   <ThemeContext.Provider value={ this.state.theme }>
+    //     <EuiHeader className='chrHeader' position='fixed'>
+    //       <EuiHeaderSection grow={false}>
+    //         <EuiShowFor sizes={['xs', 's']}>
+    //           <EuiHeaderSectionItem border='right'>
+    //             { this.renderMenuTrigger() }
+    //           </EuiHeaderSectionItem>
+    //         </EuiShowFor>
+    //         <EuiHeaderSectionItem border='right'>
+    //           { this.renderLogo() }
+    //         </EuiHeaderSectionItem>
+    //         <EuiHeaderSectionItem border='right'>
+    //           { /* <HeaderSpacesMenu /> */ }
+    //         </EuiHeaderSectionItem>
+    //       </EuiHeaderSection>
+
+    //       { this.renderBreadcrumbs() }
+
+    //       <EuiHeaderSection side='right'>
+    //         <EuiHeaderSectionItem className='chrHeader__themeSection'>
+    //           <EuiButton
+    //             size='s'
+    //             iconType={ themeIcon }
+    //             onClick={ () => this.handleChangeTheme() }
+    //             isLoading={ this.state.themeIsLoading }>
+    //             Switch Theme
+    //           </EuiButton>
+    //         </EuiHeaderSectionItem>
+    //       </EuiHeaderSection>
+    //     </EuiHeader>
+    //     <Sidenav ref={ this.setNavDrawerRef } />
+    //     <EuiPage restrictWidth>
+    //       { this.props.children }
+    //     </EuiPage>
+    //   </ThemeContext.Provider>
+    // )
   }
 }

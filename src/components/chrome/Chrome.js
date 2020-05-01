@@ -11,6 +11,7 @@ import React from 'react'
 import moon from 'src/components/chrome/assets/moon.svg'
 // @ts-ignore
 import sun from 'src/components/chrome/assets/sun.svg'
+import TopBar from 'src/components/chrome/TopBar'
 
 import {
   EuiButton,
@@ -115,35 +116,7 @@ export default class Chrome extends React.Component {
 
     return (
       <>
-        <EuiHeader className='chrHeader' position='fixed'>
-          <EuiHeaderSection grow={false}>
-            <EuiShowFor sizes={['xs', 's']}>
-              <EuiHeaderSectionItem border='right'>
-                { this.renderMenuTrigger() }
-              </EuiHeaderSectionItem>
-            </EuiShowFor>
-            <EuiHeaderSectionItem border='right'>
-              { this.renderLogo() }
-            </EuiHeaderSectionItem>
-            <EuiHeaderSectionItem border='right'>
-              { /* <HeaderSpacesMenu /> */ }
-            </EuiHeaderSectionItem>
-          </EuiHeaderSection>
-
-          { this.renderBreadcrumbs() }
-
-          <EuiHeaderSection side='right'>
-            <EuiHeaderSectionItem className='chrHeader__themeSection'>
-              <EuiButton
-                size='s'
-                iconType={ themeIcon }
-                onClick={ () => this.handleChangeTheme() }
-                isLoading={ this.state.themeIsLoading }>
-                Switch Theme
-              </EuiButton>
-            </EuiHeaderSectionItem>
-          </EuiHeaderSection>
-        </EuiHeader>
+        <TopBar />
         <EuiPage>
           <EuiPageSideBar>
             <SideNav />

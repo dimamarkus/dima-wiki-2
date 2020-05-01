@@ -37,7 +37,16 @@ export default () => {
   const musicLinks = createItem('Music', {
     icon: <EuiIcon type='img/music.svg' />,
     items: [
-      createItem('DJ Sets',    { to: '/dj' }),
+      createItem('DJ Sets',    {
+        to: '/dj',
+        items: [
+          createItem('DJ Sets',    { to: '/dj' }),
+          createItem('Tracks',     { to: '/tracks' }),
+          createItem('Events',     { to: '/events' }),
+          createItem('Influences', { to: '/influences' }),
+          createItem('Concerts',   { to: '/concerts' }),
+        ]
+      }),
       createItem('Tracks',     { to: '/tracks' }),
       createItem('Events',     { to: '/events' }),
       createItem('Influences', { to: '/influences' }),
@@ -45,35 +54,33 @@ export default () => {
     ]
   })
 
-  const techLinks = createItem('Design & Tech', {
+  const techLinks = createItem('Software Design', {
     icon: <EuiIcon type='img/ruler-triangle.svg' />,
     items: [
       createItem('My Work',   { to: '/my-work' }),
-      createItem('Resources', { to: '/resources' }),
       createItem('Articles',  { to: '/articles' }),
+      createItem('Resources', { to: '/resources' }),
       createItem('Software',  { to: '/software' }),
     ]
   })
 
-  const theRestLinks = createItem('The Rest...', {
-    icon: <EuiIcon type='logoLogstash' />,
+  const theRestLinks = createItem('Things I Like', {
+    icon: <EuiIcon type='img/heart.svg' />,
     items: [
       createItem('Books', { to: '/books' }),
+      createItem('Images', { to: '/images' }),
+      createItem('Products', { to: '/products' }),
       createItem('Quotes', { to: '/quotes' }),
       createItem('Recipes', { to: '/recipes' }),
       createItem('Restaurants', { to: '/restaurants' }),
-      createItem('Products', { to: '/products' }),
-      createItem('Images', { to: '/images' }),
-      createItem('My Photos', { to: '/my-photos' }),
     ]
   })
 
   const sideNav = [
-    createItem('Blog', { to: '/blog', icon: <EuiIcon type='img/newspaper.svg' /> }),
     musicLinks,
     techLinks,
     theRestLinks,
-    createItem('About', { to: '/about' }),
+    createItem('Blog', { to: '/blog', icon: <EuiIcon type='img/newspaper.svg' /> }),
   ]
 
   return (

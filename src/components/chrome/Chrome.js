@@ -29,7 +29,7 @@ const Chrome = ({ children }) => {
         <EuiPageSideBar>
           <SideNav />
         </EuiPageSideBar>
-        <EuiPageBody component="div">
+        <EuiPageBody component='div'>
           { children }
         </EuiPageBody>
       </EuiPage>

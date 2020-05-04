@@ -1,5 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useDispatch, useSelector } from 'react-redux'
+import { toggleDarkMode } from 'src/state/app'
+// @ts-ignore
+import moon from 'src/components/chrome/assets/moon.svg'
+// @ts-ignore
+import sun from 'src/components/chrome/assets/sun.svg'
+
 import {
   EuiButton,
   // @ts-ignore
@@ -22,15 +29,15 @@ const TopBar = ({ content, className }) => {
   const breadcrumbs = [
     {
       text: 'Home',
-      href: '#',
-      onClick: (e) => {
-        e.preventDefault()
-        console.log('You clicked home')
-      },
+      href: '/',
       'data-test-subj': 'breadcrumbsAnimals',
       className: 'customClass',
     },
   ]
+
+  const dispatch = useDispatch()
+  const isDarkMode = useSelector(state => state.app.isDarkMode)
+  const toggleTheme = toggleDarkMode(!isDarkMode)
 
   return (
     <EuiHeader className='chrHeader' position='fixed'>
@@ -62,8 +69,8 @@ const TopBar = ({ content, className }) => {
         <EuiHeaderSectionItem className='chrHeader__themeSection'>
           <EuiButton
             size='s'
-            iconType={ 'sun' }
-            onClick={ () => console.log('click') }
+            iconType={ isDarkMode ? sun : moon }
+            onClick={ () => dispatch(toggleTheme) }
             isLoading={ false }>
             Subscribe
           </EuiButton>

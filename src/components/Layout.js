@@ -1,19 +1,18 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
+import Chrome from 'src/components/chrome/Chrome'
 import Navbar from 'src/components/Navbar'
 import Footer from 'src/components/Footer'
 import './all.sass'
-import { EuiPageBody } from '@elastic/eui';
-
 
 const TemplateWrapper = ({ children }) => {
   return (
-    <EuiPageBody component="div">
-		<Helmet />
+	  <Chrome>
+			<Helmet />
     	<Navbar />
     	{ children }
     	<Footer />
-    </EuiPageBody>
+    </Chrome>
   )
 }
 

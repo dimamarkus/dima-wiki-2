@@ -15,23 +15,28 @@ export default () => {
   }
 
   const NavLink = ({ to, children }) =>(
-    <div class='euiSideNavItem euiSideNavItem--trunk'>
+    <div className='euiSideNavItem euiSideNavItem--trunk'>
       <Link to={ to }>{ children }</Link>
     </div>
   )
 
-  const createItem = (name, data = {}) => {
+  const createItem = (name, data = {}, isLink = false) => {
     // NOTE: Duplicate `name` values will cause `id` collisions.
     const href = data.to || '#'
-    return {
+    const item = {
       ...data,
       id: name,
       name,
       href,
       isSelected: selectedItemName === name,
       onClick: () => selectItem(name),
-      // renderItem: () => <NavLink to={ href }>{ name }</NavLink>,
     }
+
+    if (isLink) {
+      item.renderItem = () => <NavLink to={ href }>{ name }</NavLink>
+    }
+
+    return item
   }
 
   const musicLinks = createItem('Music', {
@@ -47,7 +52,7 @@ export default () => {
           createItem('Concerts',   { to: '/concerts' }),
         ]
       }),
-      createItem('Tracks',     { to: '/tracks' }),
+      createItem('Tracks',     { to: '/tracks' }, true),
       createItem('Events',     { to: '/events' }),
       createItem('Influences', { to: '/influences' }),
       createItem('Concerts',   { to: '/concerts' }),

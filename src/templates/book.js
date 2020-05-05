@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
 import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
-import Layout from 'src/components/Layout'
+import SidebarLayout from 'src/components/SidebarLayout'
 import Content, { HTMLContent } from 'src/components/Content'
 
 export const BookTemplate = ({
@@ -18,7 +18,6 @@ export const BookTemplate = ({
 
   return (
     <section className='section'>
-      {helmet || ''}
       <div className='container content'>
         <div className='columns'>
           <div className='column is-10 is-offset-1'>
@@ -56,26 +55,26 @@ BookTemplate.propTypes = {
 
 const Book = ({ data }) => {
   const { markdownRemark: post } = data
+  const sidebar = (
+    <p>test</p>
+  )
+
+  const content = (
+    <BookTemplate
+      content={ post.html }
+      contentComponent={ HTMLContent }
+      description={ post.frontmatter.description }
+
+      tags={ post.frontmatter.tags }
+      title={ post.frontmatter.title }
+    />
+  )
 
   return (
-    <Layout>
-      <BookTemplate
-        content={ post.html }
-        contentComponent={ HTMLContent }
-        description={ post.frontmatter.description }
-        helmet={
-          <Helmet titleTemplate='%s | Blog'>
-            <title>{`${post.frontmatter.title}` }</title>
-            <meta
-              name='description'
-              content={ `${post.frontmatter.description}` }
-            />
-          </Helmet>
-        }
-        tags={ post.frontmatter.tags }
-        title={ post.frontmatter.title }
-      />
-   </Layout>
+    <SidebarLayout
+      sidebar={ sidebar }
+      content={ content }
+    />
   )
 }
 

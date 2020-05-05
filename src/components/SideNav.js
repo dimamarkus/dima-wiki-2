@@ -40,7 +40,7 @@ export default () => {
   }
 
   const musicLinks = createItem('Music', {
-    icon: <EuiIcon type='img/music.svg' />,
+    icon: <EuiIcon type='/img/music.svg' />,
     items: [
       createItem('DJ Sets',    {
         to: '/dj',
@@ -60,7 +60,7 @@ export default () => {
   })
 
   const techLinks = createItem('Software Design', {
-    icon: <EuiIcon type='img/ruler-triangle.svg' />,
+    icon: <EuiIcon type='/img/ruler-triangle.svg' />,
     items: [
       createItem('My Work',   { to: '/my-work' }),
       createItem('Articles',  { to: '/articles' }),
@@ -70,7 +70,7 @@ export default () => {
   })
 
   const theRestLinks = createItem('Things I Like', {
-    icon: <EuiIcon type='img/heart.svg' />,
+    icon: <EuiIcon type='/img/heart.svg' />,
     items: [
       createItem('Books', { to: '/books' }),
       createItem('Images', { to: '/images' }),
@@ -85,7 +85,7 @@ export default () => {
     musicLinks,
     techLinks,
     theRestLinks,
-    createItem('Blog', { to: '/blog', icon: <EuiIcon type='img/newspaper.svg' /> }),
+    createItem('Blog', { to: '/blog', icon: <EuiIcon type='/img/newspaper.svg' /> }),
   ]
 
   return (

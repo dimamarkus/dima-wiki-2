@@ -53,7 +53,7 @@ const TopBar = ({ content, className }) => {
         </EuiShowFor>
         <EuiHeaderSectionItem border='right'>
           <EuiHeaderLogo
-            iconType='img/logotype.svg'
+            iconType='/img/logotype.svg'
             href='/'
             aria-label='Goes to home'
           />

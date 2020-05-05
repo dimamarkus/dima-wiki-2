@@ -8,7 +8,6 @@ import './all.sass'
 const TemplateWrapper = ({ children }) => {
   return (
 	  <Chrome>
-			<Helmet />
     	<Navbar />
     	{ children }
     	<Footer />

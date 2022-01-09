@@ -1,0 +1,12 @@
+/* Webfont: ProximaNova-RegularIt */@font-face {
+    font-family: 'ProximaNovaRg';
+    src: url('Mark Simonson - Proxima Nova Regular Italic.eot'); /* IE9 Compat Modes */
+    src: url('Mark Simonson - Proxima Nova Regular Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('Mark Simonson - Proxima Nova Regular Italic.woff') format('woff'), /* Modern Browsers */
+         url('Mark Simonson - Proxima Nova Regular Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('Mark Simonson - Proxima Nova Regular Italic.svg#ProximaNova-RegularIt') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

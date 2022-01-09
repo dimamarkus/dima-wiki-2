@@ -1,0 +1,26 @@
+:root {
+  --minimumColumnWidth: 180px;
+}
+
+.caseStudies {
+  grid-auto-rows: 0;
+  grid-template-rows: 1fr;
+  overflow-y: hidden;
+  grid-gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--minimumColumnWidth), 1fr)
+  );
+}
+
+.caseStudy {
+  display: inline-block;
+  flex-direction: row;
+  background: var(--background-base);
+}
+
+.image {
+  width: 175.8px;
+  height: 175.8px;
+}

@@ -1,0 +1,42 @@
+.sidebar {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+  width: var(--sidebar-width);
+}
+
+.sidebar {
+  background: var(--black);
+  /* width: var(--sidebar-width); */
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  padding: 0 24px;
+  margin-top: 24px;
+  margin-bottom: 18px;
+}
+
+.logo img {
+  width: 131px;
+}
+
+.sidebar a {
+  color: var(--text-base);
+  font-weight: 600;
+  padding: 8px 16px;
+}
+
+.sidebar a img {
+  margin-right: 16px;
+}

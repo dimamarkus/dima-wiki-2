@@ -1,0 +1,23 @@
+{
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "files.exclude": {
+    "**/_headers": true,
+    "**/.cache": true,
+    "**/.dependabot": true,
+    "**/.editorconfig": true,
+    "**/.github": true,
+    "**/.gitignore": true,
+    "**/.vscode": true,
+    "**/CODE_OF_CONDUCT.md": true,
+    "**/CONTRIBUTING.md": true,
+    "**/LICENSE": true,
+    "**/netlify": true,
+    "**/node_modules": true,
+    "**/package-lock.json": true,
+    "**/public": true,
+    "**/PULL_REQUEST_TEMPLATE.md": true,
+    "**/renovate.json": true
+  }
+}

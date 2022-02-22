@@ -1,0 +1,9 @@
+{
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "files.exclude": {
+    "**/.vscode": true,
+    "**/pages": true,
+  }
+}

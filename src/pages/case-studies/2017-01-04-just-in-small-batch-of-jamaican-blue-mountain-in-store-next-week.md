@@ -2,6 +2,7 @@
 templateKey: 'case-study'
 title: 'Case study 3'
 date: 2017-01-04T15:04:10.000Z
+category: 'myCategory2'
 featuredpost: true
 description: >-
   We’re proud to announce that we’ll be offering a small batch of Jamaica Blue

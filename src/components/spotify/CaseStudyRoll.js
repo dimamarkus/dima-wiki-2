@@ -46,6 +46,9 @@ class CaseStudyRollTemplate extends React.Component {
                   <span className='subtitle is-size-5 is-block'>
                     {caseStudy.frontmatter.date}
                   </span>
+                  <span className='subtitle is-size-5 is-block'>
+                    {caseStudy.frontmatter.category}
+                  </span>
                 </p>
               </article>
             </Link>
@@ -81,6 +84,7 @@ export default function CaseStudyRoll() {
                 }
                 frontmatter {
                   title
+                  category
                   templateKey
                   date(formatString: "MMMM DD, YYYY")
                   featuredpost

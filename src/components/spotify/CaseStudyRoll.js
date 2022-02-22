@@ -19,17 +19,17 @@ class CaseStudyRollTemplate extends React.Component {
               to={caseStudy.fields.slug}
             >
               <article>
-                {caseStudy.frontmatter.featuredImage ? (
+                {caseStudy.frontmatter.thumb ? (
                   <div className={styles.image}>
                     <PreviewCompatibleImage
                       imageInfo={{
-                        image: caseStudy.frontmatter.featuredImage,
+                        image: caseStudy.frontmatter.thumb,
                         alt: `featured image thumbnail for caseStudy ${caseStudy.frontmatter.title}`,
                         width:
-                          caseStudy.frontmatter.featuredImage.childImageSharp
+                          caseStudy.frontmatter.thumb.childImageSharp
                             .gatsbyImageData.width,
                         height:
-                          caseStudy.frontmatter.featuredImage.childImageSharp
+                          caseStudy.frontmatter.thumb.childImageSharp
                             .gatsbyImageData.height,
                       }}
                     />
@@ -72,7 +72,7 @@ export default function CaseStudyRoll() {
       query={graphql`
         query CaseStudyRollQuery {
           allMarkdownRemark(
-            sort: { order: DESC, fields: [frontmatter___date] }
+            sort: { order: ASC, fields: [frontmatter___created] }
             filter: { frontmatter: { templateKey: { eq: "case-study" } } }
           ) {
             edges {
@@ -88,24 +88,14 @@ export default function CaseStudyRoll() {
                   templateKey
                   date(formatString: "MMMM DD, YYYY")
                   featuredPost
-                  featuredImage {
-                    childImageSharp {
-                      gatsbyImageData(
-                        width: 120
-                        quality: 100
-                        layout: CONSTRAINED
-                      )
-                    }
-                  }
+                  ...thumbnailQuery
                 }
               }
             }
           }
         }
       `}
-      render={(data, count) => (
-        <CaseStudyRollTemplate data={data} count={count} />
-      )}
+      render={(data) => <CaseStudyRollTemplate data={data} />}
     />
   )
 }

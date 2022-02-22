@@ -19,17 +19,17 @@ class CaseStudyRollTemplate extends React.Component {
               to={caseStudy.fields.slug}
             >
               <article>
-                {caseStudy.frontmatter.featuredimage ? (
+                {caseStudy.frontmatter.featuredImage ? (
                   <div className={styles.image}>
                     <PreviewCompatibleImage
                       imageInfo={{
-                        image: caseStudy.frontmatter.featuredimage,
+                        image: caseStudy.frontmatter.featuredImage,
                         alt: `featured image thumbnail for caseStudy ${caseStudy.frontmatter.title}`,
                         width:
-                          caseStudy.frontmatter.featuredimage.childImageSharp
+                          caseStudy.frontmatter.featuredImage.childImageSharp
                             .gatsbyImageData.width,
                         height:
-                          caseStudy.frontmatter.featuredimage.childImageSharp
+                          caseStudy.frontmatter.featuredImage.childImageSharp
                             .gatsbyImageData.height,
                       }}
                     />
@@ -87,8 +87,8 @@ export default function CaseStudyRoll() {
                   category
                   templateKey
                   date(formatString: "MMMM DD, YYYY")
-                  featuredpost
-                  featuredimage {
+                  featuredPost
+                  featuredImage {
                     childImageSharp {
                       gatsbyImageData(
                         width: 120

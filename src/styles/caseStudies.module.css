@@ -5,7 +5,7 @@
 .caseStudies {
   grid-auto-rows: 0;
   grid-template-rows: 1fr;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   grid-gap: 24px;
   display: grid;
   grid-template-columns: repeat(

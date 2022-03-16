@@ -5,12 +5,14 @@ import { Helmet } from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/spotify/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import PreviewCompatibleImage from '/src/components/PreviewCompatibleImage'
 
 // eslint-disable-next-line
 export const CaseStudyTemplate = ({
   content,
   contentComponent,
   description,
+  featuredImage,
   tags,
   title,
   helmet,
@@ -27,6 +29,14 @@ export const CaseStudyTemplate = ({
               {title}
             </h1>
             <p>{description}</p>
+            <PreviewCompatibleImage
+              imageInfo={{
+                image: featuredImage,
+                alt: `featured image thumbnail for caseStudy ${title}`,
+                width: featuredImage.childImageSharp.gatsbyImageData.width,
+                height: featuredImage.childImageSharp.gatsbyImageData.height,
+              }}
+            />
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -52,6 +62,7 @@ CaseStudyTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
+  featuredImage: PropTypes.string,
   helmet: PropTypes.object,
 }
 
@@ -64,6 +75,7 @@ const CaseStudy = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
+        featuredImage={post.frontmatter.featuredImage}
         helmet={
           <Helmet titleTemplate='%s | Blog'>
             <title>{`${post.frontmatter.title}`}</title>
@@ -98,6 +110,7 @@ export const pageQuery = graphql`
         title
         description
         tags
+        ...featuredImageQuery
       }
     }
   }
